@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, ToastController } from 'ionic-angular';
 import { NcrapiProvider } from '../../providers/ncrapi/ncrapi';
-import { SplashScreen } from '@ionic-native/splash-screen';
+// import { SplashScreen } from '@ionic-native/splash-screen';
 
 @Component({
   selector: 'page-home',
@@ -23,7 +23,7 @@ export class HomePage {
 	ionViewDidLoad() {
 		setTimeout(() => {
 			this.splash = false;
-		}, 4000);
+		}, 2500);
 	}
 
 	// constructor(public splashScreen: splashScreen) {

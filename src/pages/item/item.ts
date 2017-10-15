@@ -59,7 +59,7 @@ export class ItemPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ItemPage');
+    // console.log('ionViewDidLoad ItemPage');
   }
 
 }

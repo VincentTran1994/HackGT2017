@@ -45,9 +45,9 @@ export class HomePage {
             checkPrice: this.checkPrice(this.items[i], this.listFirebase[i].price)
           })
         }
-        console.log(data);
+        // console.log(data);
       });
-      console.log(res);
+      // console.log(res);
     });
   }
 
@@ -107,13 +107,13 @@ export class HomePage {
     }, 100);
   }
 
-  getItemPrice() {
-    this.ncrService.getItemPrice().subscribe(res => console.log(res));
-  }
-
-  getSpecificItem() {
-    this.ncrService.getItem('658540dc-8dc9-42c9-97f1-b7e5d3bc6f71').subscribe(res => {
-      console.log(res);
-    });
-  }
+  // getItemPrice() {
+  //   this.ncrService.getItemPrice().subscribe(res => console.log(res));
+  // }
+  //
+  // getSpecificItem() {
+  //   this.ncrService.getItem('658540dc-8dc9-42c9-97f1-b7e5d3bc6f71').subscribe(res => {
+  //     console.log(res);
+  //   });
+  // }
 }

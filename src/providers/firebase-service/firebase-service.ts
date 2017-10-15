@@ -13,7 +13,7 @@ import {AngularFireDatabase} from 'angularfire2/database';
 export class FirebaseServiceProvider {
 
   constructor(public afd: AngularFireDatabase) {
-    console.log('Hello FirebaseServiceProvider Provider');
+    // console.log('Hello FirebaseServiceProvider Provider');
   }
 
   getItems() {

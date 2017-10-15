@@ -23,6 +23,7 @@ export class ItemPage {
   itemOldEffectiveDate:Date;
   itemNewEffectiveDate:Date;
   itemOldPrice:number;
+  itemPhotoURL:string;
   listPrice = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public ncrApi: NcrApiProvider) {
@@ -42,6 +43,7 @@ export class ItemPage {
     });
 
     this.itemOldPrice = this.item.oldPrice;
+    this.itemPhotoURL = this.item.photoURL;
     this.itemOldEffectiveDate = new Date(this.item.oldEffectiveDate);
     this.itemNewEffectiveDate = new Date(this.item.item.auditTrail.lastUpdated);
   }

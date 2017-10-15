@@ -13,31 +13,82 @@
 </ion-header>
 
 
-<ion-content padding>
-  <ion-item no-lines>
-    New Price:
-    <ion-icon *ngIf="(checkPrice() > 0)" item-end name="arrow-round-up" color="danger"></ion-icon>
-    <ion-icon *ngIf="(checkPrice() == 0)" item-end name="remove"></ion-icon>
-    <ion-icon *ngIf="(checkPrice() < 0)" item-end name="arrow-round-down" color="secondary"></ion-icon>
-    <a item-end><b>{{ itemNewPrice }}</b> USD</a>
-  </ion-item>
-  <ion-item no-lines>
-    Effective Date:
-    <b item-end>{{ itemNewEffectiveDate | date }}</b>
-  </ion-item>
+<ion-content>
+  <ion-card>
+    <img [src]="itemPhotoURL"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{ itemDescription }}
+      </ion-card-title>
+      <ion-item no-lines>
+        New Price:
+        <ion-icon *ngIf="(checkPrice() > 0)" item-end name="arrow-round-up" color="danger"></ion-icon>
+        <ion-icon *ngIf="(checkPrice() == 0)" item-end name="remove"></ion-icon>
+        <ion-icon *ngIf="(checkPrice() < 0)" item-end name="arrow-round-down" color="secondary"></ion-icon>
+        <a item-end><b>{{ itemNewPrice }}</b> USD</a>
+      </ion-item>
+      <ion-item no-lines>
+        Effective Date:
+        <b item-end>{{ itemNewEffectiveDate | date }}</b>
+      </ion-item>
 
-  <ion-item no-lines>
-    Old Price:
-    <a item-end><b>{{ itemOldPrice }}</b> USD</a>
-  </ion-item>
-  <ion-item no-lines>
-    Effective Date:
-    <b item-end>{{ itemOldEffectiveDate | date }}</b>
-  </ion-item>
+      <ion-item no-lines>
+        Old Price:
+        <a item-end><b>{{ itemOldPrice }}</b> USD</a>
+      </ion-item>
+      <ion-item no-lines>
+        Effective Date:
+        <b item-end>{{ itemOldEffectiveDate | date }}</b>
+      </ion-item>
+    </ion-card-content>
 
-  <ion-item no-lines text-wrap>
-    Item Description:
-    <p style="margin-top: 10px">{{ itemDescription }}</p>
-  </ion-item>
+    <ion-row no-padding>
+      <ion-col>
+        <button ion-button clear small color="secondary" icon-start>
+          <ion-icon name='cash'></ion-icon>
+          Buy
+        </button>
+      </ion-col>
+      <ion-col text-center>
+        <button ion-button clear small color="dark" icon-start>
+          <ion-icon name='cart'></ion-icon>
+          Cart
+        </button>
+      </ion-col>
+      <ion-col text-right>
+        <button ion-button clear small color="primary" icon-start>
+          <ion-icon name='share-alt'></ion-icon>
+          Share
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <!--<ion-item no-lines>-->
+    <!--New Price:-->
+    <!--<ion-icon *ngIf="(checkPrice() > 0)" item-end name="arrow-round-up" color="danger"></ion-icon>-->
+    <!--<ion-icon *ngIf="(checkPrice() == 0)" item-end name="remove"></ion-icon>-->
+    <!--<ion-icon *ngIf="(checkPrice() < 0)" item-end name="arrow-round-down" color="secondary"></ion-icon>-->
+    <!--<a item-end><b>{{ itemNewPrice }}</b> USD</a>-->
+  <!--</ion-item>-->
+  <!--<ion-item no-lines>-->
+    <!--Effective Date:-->
+    <!--<b item-end>{{ itemNewEffectiveDate | date }}</b>-->
+  <!--</ion-item>-->
+
+  <!--<ion-item no-lines>-->
+    <!--Old Price:-->
+    <!--<a item-end><b>{{ itemOldPrice }}</b> USD</a>-->
+  <!--</ion-item>-->
+  <!--<ion-item no-lines>-->
+    <!--Effective Date:-->
+    <!--<b item-end>{{ itemOldEffectiveDate | date }}</b>-->
+  <!--</ion-item>-->
+
+  <!--<ion-item no-lines text-wrap>-->
+    <!--Item Description:-->
+    <!--<p style="margin-top: 10px">{{ itemDescription }}</p>-->
+  <!--</ion-item>-->
+
 
 </ion-content>

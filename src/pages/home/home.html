@@ -1,7 +1,7 @@
 <ion-header style="background-color: #29B462; text-align: center">
   <ion-navbar color="secondary">
     <ion-title>
-      GoodDeal
+      Deal?!
     </ion-title>
   </ion-navbar>
   <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
@@ -14,9 +14,21 @@
   <ion-list no-lines>
     <ion-item *ngFor="let item of list" (click)="gotoItemPage(item)" style="border-bottom: solid 1px #222222">
       {{ getItem(item.item) }}
-      <ion-icon *ngIf="(checkPrice(item.item, item.oldPrice) > 0)" item-end name="arrow-round-up" color="danger"></ion-icon>
-      <ion-icon *ngIf="(checkPrice(item.item, item.oldPrice) == 0)" item-end name="remove"></ion-icon>
-      <ion-icon *ngIf="(checkPrice(item.item, item.oldPrice) < 0)" item-end name="arrow-round-down" color="secondary"></ion-icon>
+      <button ion-button item-right icon-left *ngIf="(item.checkPrice > 0)" color="danger" outline
+              style="margin-right: 10px; min-width: 80px">
+        <ion-icon item-end name="arrow-round-up"></ion-icon>
+        + {{ item.checkPrice.toFixed(2) }}
+      </button>
+      <button ion-button item-right icon-left *ngIf="(item.checkPrice == 0)" outline
+              style="margin-right: 10px; ; min-width: 80px">
+        <ion-icon item-end name="remove"></ion-icon>
+        {{ item.checkPrice.toFixed(2) }}
+      </button>
+      <button ion-button item-right icon-left *ngIf="(item.checkPrice < 0)" color="secondary" outline
+              style="margin-right: 10px; ; min-width: 80px">
+        <ion-icon item-end name="arrow-round-down"></ion-icon>
+        - {{ item.checkPrice.toFixed(2)*(-1) }}
+      </button>
     </ion-item>
   </ion-list>
 

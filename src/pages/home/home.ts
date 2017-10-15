@@ -16,10 +16,17 @@ export class HomePage {
   list = [];
   listPrice = [];
   listFirebase = [];
+  splash = true;
 
   constructor(public navCtrl: NavController, public ncrService: NcrApiProvider, public firebaseService: FirebaseServiceProvider) {
     this.getdata();
     this.getAllPrice();
+  }
+
+  ionViewDidLoad() {
+    setTimeout(() => {
+      this.splash = false;
+    }, 2500);
   }
 
   getdata() {
@@ -30,7 +37,13 @@ export class HomePage {
         for (let i = 0; i < 50; i++) {
           console.log(this.listFirebase[i].price);
           console.log(this.listFirebase[i].auditTrail.lastUpdated);
-          this.list.push({item: this.items[i], oldPrice: this.listFirebase[i].price, oldEffectiveDate: this.listFirebase[i].auditTrail.lastUpdated})
+          this.list.push({
+            item: this.items[i],
+            oldPrice: this.listFirebase[i].price,
+            oldEffectiveDate: this.listFirebase[i].auditTrail.lastUpdated,
+            photoURL: this.listFirebase[i].photo,
+            checkPrice: this.checkPrice(this.items[i], this.listFirebase[i].price)
+          })
         }
         console.log(data);
       });
@@ -60,7 +73,13 @@ export class HomePage {
     // Reset items back to all of the items
     this.list = [];
     for (let i = 0; i < 50; i++) {
-      this.list.push({item: this.items[i], oldPrice: this.listFirebase[i].price, oldEffectiveDate: this.listFirebase[i].auditTrail.lastUpdated})
+      this.list.push({
+        item: this.items[i],
+        oldPrice: this.listFirebase[i].price,
+        oldEffectiveDate: this.listFirebase[i].auditTrail.lastUpdated,
+        photoURL: this.listFirebase[i].photo,
+        checkPrice: this.checkPrice(this.items[i], this.listFirebase[i].price)
+      })
     }
 
     // set val to the value of the searchbar
@@ -75,26 +94,17 @@ export class HomePage {
   }
 
   checkPrice(i, oldPrice) {
-    let result = 0;
     let itemNewPrice:number = this.listPrice.filter((item) => {
         return (item.priceId.itemCode.toLowerCase().indexOf(i.itemId.itemCode.toLowerCase()) > -1);
       })[0].price;
-
-    if (itemNewPrice < oldPrice) {
-      result = -1;
-    } else if (itemNewPrice > oldPrice) {
-      result = 1;
-    }
-    return result;
+    return itemNewPrice - oldPrice;
   }
 
   doRefresh(refresher) {
-    console.log('Begin async operation', refresher);
-    this.navCtrl.setRoot(this.navCtrl.getActive().component);
     setTimeout(() => {
-      console.log('Async operation has ended');
+      this.navCtrl.setRoot(this.navCtrl.getActive().component);
       refresher.complete();
-    }, 5000);
+    }, 100);
   }
 
   getItemPrice() {

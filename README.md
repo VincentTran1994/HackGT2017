@@ -1,3 +1,7 @@
+### Deal?! 
+# Check out our Devpost for some pictures!
+https://devpost.com/software/deal-3qpi91
+
 ## Inspiration
 We ourselves are broke college students who try to get the best bang for the buck. We were inspired to create something that helps everyone out. Thus, we created Deal?!, an app that helps you decide when to buy the things you want. We named it Deal?! because sometimes we wonder if an item is a good deal, and with Deal?! those moments of indecision are forever gone!
 

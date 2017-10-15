@@ -1,5 +1,5 @@
-### Deal?! 
-# Check out our Devpost for some pictures!
+# Deal?! 
+## Check out our Devpost for some pictures!
 https://devpost.com/software/deal-3qpi91
 
 ## Inspiration
